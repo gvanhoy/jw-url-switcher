@@ -101,6 +101,15 @@ class JW_URL_Switcher_Admin {
 	}
 
 	/**
+	 * Register the menu item for the plugin.
+	 *
+	 * @since    0.1.0
+	 */
+	function jw_url_switcher_menu() {
+		add_menu_page( 'JW URL Switcher Options', 'JW URL Switcher', 'manage_options', 'jw-url-switcher-menu', 'jw_url_switcher_options' );
+	}
+
+	/**
 	 * Render the Admin options menu
 	 *
 	 * @since    0.1.0
@@ -112,14 +121,5 @@ class JW_URL_Switcher_Admin {
 		echo '<div class="wrap">';
 		echo '<p>Here is where the form would go if I actually had options.</p>';
 		echo '</div>';
-	}
-
-	/**
-	 * Register the menu item for the plugin.
-	 *
-	 * @since    0.1.0
-	 */
-	function jw_url_switcher_menu() {
-		add_options_page( 'JW URL Switcher Options', 'JW URL Switcher', 'manage_options', 'jw-url-switcher-menu', 'jw_url_switcher_options' );
 	}
 }
