@@ -13,11 +13,11 @@
  * @package           JW_URL_Switcher
  *
  * @wordpress-plugin
- * Plugin Name:       WordPress Plugin Boilerplate
+ * Plugin Name:       JW URL Switcher
  * Plugin URI:        https://live.nyword.church/jw-url-switcher-uri/
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       This plugins makes changing the url of an existing media element from the JW Player Plugin 6 easier.
  * Version:           0.1.0
- * Author:            Garrett Vanhoy or Your Company
+ * Author:            Provi
  * Author URI:        https://live.nyword.church/
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
