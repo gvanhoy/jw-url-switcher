@@ -99,27 +99,4 @@ class JW_URL_Switcher_Admin {
 		wp_enqueue_script( $this->jw_url_switcher, plugin_dir_url( __FILE__ ) . 'js/jw-url-switcher-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
-
-	/**
-	 * Register the menu item for the plugin.
-	 *
-	 * @since    0.1.0
-	 */
-	function jw_url_switcher_menu() {
-		add_menu_page( 'JW URL Switcher Options', 'JW URL Switcher', 'manage_options', 'jw-url-switcher-menu', 'jw_url_switcher_options' );
-	}
-
-	/**
-	 * Render the Admin options menu
-	 *
-	 * @since    0.1.0
-	 */
-	function jw_url_switcher_options() {
-		if ( !current_user_can( 'manage_options' ) )  {
-			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
-		}
-		echo '<div class="wrap">';
-		echo '<p>Here is where the form would go if I actually had options.</p>';
-		echo '</div>';
-	}
 }
