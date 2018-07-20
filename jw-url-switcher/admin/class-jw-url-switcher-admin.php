@@ -111,6 +111,25 @@ class JW_URL_Switcher_Admin {
 		'manage_options', 'jw-url-switcher-menu', array($this, 'jw_url_switcher_options') );
 	}
 
+	/**
+	 * Register the settings for the plugin to use
+	 *
+	 * @since    0.1.0
+	 */
+	function jw_url_switcher_register_settings() {
+		$args = array(
+			'type'              => 'string',
+			'description'       => 'Full YouTube URL such as: https://www.youtube.com/watch?v=[video_code_here]'
+		);
+		register_setting( 'jw-url-switcher-settings-group', 'youtube_url', $args);
+
+		$args = array(
+			'type'              => 'integer',
+			'description'       => 'Media ID of JW Player media item you want to change.'
+		);
+		register_setting( 'jw-url-switcher-settings-group', 'media_id', $args);
+	}
+
 
 	/**
 	 * Render the Admin options menu

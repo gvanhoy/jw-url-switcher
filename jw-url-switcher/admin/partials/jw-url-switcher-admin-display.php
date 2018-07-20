@@ -15,5 +15,20 @@
 
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div class="wrap">
-    <p>Here is where the form would go if I actually had options.</p>
+    <form method="post" action="options.php">
+        <?php settings_fields( 'jw-url-switcher-settings-group' ); ?>
+        <?php do_settings_sections( 'jw-url-switcher-settings-group' ); ?>
+        <table class="form-table">
+            <tr valign="top">
+            <th scope="row">Media ID</th>
+            <td><input type="text" name="media_id" value="<?php echo esc_attr( get_option('media_id') ); ?>" /></td>
+            </tr>
+            
+            <tr valign="top">
+            <th scope="row">YouTube URL</th>
+            <td><input type="text" name="youtube_url" value="<?php echo esc_attr( get_option('youtube_url') ); ?>" /></td>
+            </tr>
+        </table>
+        <?php submit_button(); ?>
+    </form>
 </div>
