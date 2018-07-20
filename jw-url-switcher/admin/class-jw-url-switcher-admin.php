@@ -121,6 +121,6 @@ class JW_URL_Switcher_Admin {
 		if ( !current_user_can( 'manage_options' ) )  {
 			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
 		}
-		include_once 'partials/jw-url-switcher-admin-display.php'
+		include_once 'partials/jw-url-switcher-admin-display.php';
 	}
 }
