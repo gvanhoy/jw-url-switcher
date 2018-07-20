@@ -215,15 +215,6 @@ class JW_URL_Switcher {
 	}
 
 	/**
-	 * Register the menu item for the plugin.
-	 *
-	 * @since    0.1.0
-	 */
-	function jw_url_switcher_menu() {
-		add_menu_page( 'JW URL Switcher Options', 'JW URL Switcher', 'manage_options', 'jw-url-switcher-menu', 'jw_url_switcher_options' );
-	}
-
-	/**
 	 * Render the Admin options menu
 	 *
 	 * @since    0.1.0
