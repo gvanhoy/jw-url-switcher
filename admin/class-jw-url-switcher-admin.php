@@ -151,12 +151,15 @@ class JW_URL_Switcher_Admin {
 	function jw_url_switcher_switch_url() {
 		# It would be nice to nonce check this, but really, how secure does this need to be?
 
+		global $wpdb; # because you need to refer to the global object.
+
+		# Get the options values stored earlier
 		$media_id = get_option("jw_url_switcher_media_id");
 		$youtube_url = get_option("jw_url_switcher_youtube_url");
 
-		global $wpdb; # because you need to refer to the global object.
-
 		# find the post that has a particular media_id and get that posts's ID
+		echo "SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\""
+
 		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\"");
 
 		$post_id = $post_row->post_parent;
