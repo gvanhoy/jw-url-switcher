@@ -20,15 +20,23 @@
         <?php do_settings_sections( 'jw-url-switcher-settings-group' ); ?>
         <table class="form-table">
             <tr valign="top">
-            <th scope="row">Media ID</th>
-            <td><input type="text" name="media_id" value="<?php echo esc_attr( get_option('media_id') ); ?>" /></td>
+                <th scope="row">Media ID</th>
+                <td>
+                    <input type="text" name="media_id" value="<?php echo esc_attr( get_option('media_id') ); ?>" />
+                </td>
             </tr>
             
             <tr valign="top">
-            <th scope="row">YouTube URL</th>
-            <td><input type="text" name="youtube_url" value="<?php echo esc_attr( get_option('youtube_url') ); ?>" /></td>
+                <th scope="row">YouTube URL</th>
+                <td>
+                    <input type="text" name="youtube_url" value="<?php echo esc_attr( get_option('youtube_url') ); ?>"/>
+                </td>
             </tr>
         </table>
         <?php submit_button(); ?>
+    </form>
+
+    <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
+        <input type="submit" value="Switch URL">
     </form>
 </div>

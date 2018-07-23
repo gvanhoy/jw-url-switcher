@@ -159,6 +159,8 @@ class JW_URL_Switcher {
 		
 		$this->loader->add_action( 'admin_init', $plugin_admin, 'jw_url_switcher_register_settings' );
 		$this->loader->add_action( 'admin_menu', $plugin_admin, 'jw_url_switcher_menu' );
+		$this->loader->add_action( 'admin_post_switch_url', $plugin_admin, 'jw_url_switcher_switch_url' );
+
 	}
 
 	/**

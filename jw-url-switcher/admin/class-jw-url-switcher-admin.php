@@ -142,4 +142,13 @@ class JW_URL_Switcher_Admin {
 		}
 		include_once 'partials/jw-url-switcher-admin-display.php';
 	}
+
+	/**
+	 * Apply url to appropriate media ID
+	 *
+	 * @since    0.1.0
+	 */
+	function jw_url_switcher_switch_url() {
+		fwrite(STDOUT, "Button Press!");
+	}
 }
