@@ -158,15 +158,15 @@ class JW_URL_Switcher_Admin {
 		$youtube_url = get_option("jw_url_switcher_youtube_url");
 
 		# find the post that has a particular media_id and get that posts's ID
-		echo "SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\"";
-
-		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\"");
+		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\";");
 
 		$post_id = $post_row->post_parent;
 
 		# Find the post that has that post as it's parent and set it's guid to the YouTube URL
 		# UPDATE wp_posts SET guid=youtube_url WHERE post_parent=post_id
-		$wpdb->update($wpdb->posts, array("guid", $youtube_url), array("post_parent", $post_id));
+		if ($post_id != 0){
+			$wpdb->update($wpdb->posts, array("guid", $youtube_url), array("post_parent", $post_id));
+		}
 
 		wp_redirect(admin_url());
 	}
