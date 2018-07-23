@@ -154,6 +154,7 @@ class JW_URL_Switcher_Admin {
 		$media_id = get_option("jw_url_switcher_media_id");
 		$youtube_url = get_option("jw_url_switcher_youtube_url")
 
+		global $wpdb; # because you need to refer to the global object.
 		# find the post that has a particular media_id and get that posts's ID
 		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\"");
 
