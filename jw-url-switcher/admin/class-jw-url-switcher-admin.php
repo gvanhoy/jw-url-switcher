@@ -149,7 +149,9 @@ class JW_URL_Switcher_Admin {
 	 * @since    0.1.0
 	 */
 	function jw_url_switcher_switch_url() {
-		$output = "Got the button press.";
-		echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
+		if ( !isset( $_POST['jw_url_switcher_switch_url'] ) || !wp_verify_nonce( $_POST['jw_url_switcher_switch_url'], 'jw_url_switcher_switch_url' ) 
+		) {
+		  exit();
+		} 
 	}
 }
