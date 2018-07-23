@@ -151,7 +151,9 @@ class JW_URL_Switcher_Admin {
 	function jw_url_switcher_switch_url() {
 		if ( !isset( $_POST['jw_url_switcher_switch_url'] ) || !wp_verify_nonce( $_POST['jw_url_switcher_switch_url'], 'jw_url_switcher_switch_url' ) 
 		) {
-		  exit();
+			wp_redirect(esc_url(home_url( '/' ));
+			return;
 		} 
+		wp_redirect(admin_url());
 	}
 }
