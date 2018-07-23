@@ -163,7 +163,7 @@ class JW_URL_Switcher_Admin {
 
 		# Find the post that has that post as it's parent and set it's guid to the YouTube URL
 		# UPDATE wp_posts SET guid=youtube_url WHERE id=post_id
-		$wpdb->update($wpdb->posts, array("guid", $youtube_url), array(id, $post_id))
+		$wpdb->update($wpdb->posts, array("guid", $youtube_url), array(id, $post_id));
 
 		wp_redirect(admin_url());
 	}
