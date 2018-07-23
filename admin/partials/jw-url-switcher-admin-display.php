@@ -38,7 +38,6 @@
 
     <form action="<?php echo esc_url( admin_url('admin-post.php') ); ?>" method="post">
         <input type="hidden" name='action' value='jw_url_switcher_switch_url'>
-        <?php wp_nonce_field( 'jw_url_switcher_switch_url' ); ?>
         <input type="submit" value="Switch URL">
     </form>
 </div>

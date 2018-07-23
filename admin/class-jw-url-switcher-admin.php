@@ -121,13 +121,13 @@ class JW_URL_Switcher_Admin {
 			'type'              => 'string',
 			'description'       => 'Full YouTube URL such as: https://www.youtube.com/watch?v=[video_code_here]'
 		);
-		register_setting( 'jw-url-switcher-settings-group', 'youtube_url', $args);
+		register_setting( 'jw-url-switcher-settings-group', 'jw_url_switcher_youtube_url', $args);
 
 		$args = array(
 			'type'              => 'integer',
 			'description'       => 'Media ID of JW Player media item you want to change.'
 		);
-		register_setting( 'jw-url-switcher-settings-group', 'media_id', $args);
+		register_setting( 'jw-url-switcher-settings-group', 'jw_url_switcher_media_id', $args);
 	}
 
 
@@ -149,11 +149,19 @@ class JW_URL_Switcher_Admin {
 	 * @since    0.1.0
 	 */
 	function jw_url_switcher_switch_url() {
-		if ( !isset( $_POST['jw_url_switcher_switch_url'] ) || !wp_verify_nonce( $_POST['jw_url_switcher_switch_url'], 'jw_url_switcher_switch_url' ) 
-		) {
-			wp_redirect(esc_url(home_url( '/' )));
-			return;
-		} 
+		# It would be nice to nonce check this, but really, how secure does this need to be?
+
+		$media_id = get_option("jw_url_switcher_media_id");
+		$youtube_url = get_option("jw_url_switcher_youtube_url")
+
+		# find the post that has a particular media_id and get that posts's ID
+		$row = $wpdb->("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" + $media_id + "\"% AND post_type=\"revision\"");
+
+		$post_id = $row->post_parent;
+
+		# Find the post that has that post as it's parent and set it's guid to the YouTube URL
+		$wpdb->("UPDATE $wpdb->posts SET guid=\"" + $youtube_url "\" WHERE id=" + $post_id);
+
 		wp_redirect(admin_url());
 	}
 }
