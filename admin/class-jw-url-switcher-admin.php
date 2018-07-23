@@ -158,7 +158,7 @@ class JW_URL_Switcher_Admin {
 		$youtube_url = get_option("jw_url_switcher_youtube_url");
 
 		# find the post that has a particular media_id and get that posts's ID
-		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\"" . $media_id . "\"% AND post_type=\"revision\";");
+		$post_row = $wpdb->get_row("SELECT * FROM $wpdb->posts WHERE post_content LIKE %mediaid=\\\"" . $media_id . "\\\"% AND post_type=\"revision\";");
 
 		$post_id = $post_row->post_parent;
 
