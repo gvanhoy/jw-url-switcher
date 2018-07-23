@@ -149,6 +149,7 @@ class JW_URL_Switcher_Admin {
 	 * @since    0.1.0
 	 */
 	function jw_url_switcher_switch_url() {
-		fwrite(STDOUT, "Button Press!");
+		$output = "Got the button press."
+		echo "<script>console.log( 'Debug Objects: " . $output . "' );</script>";
 	}
 }
