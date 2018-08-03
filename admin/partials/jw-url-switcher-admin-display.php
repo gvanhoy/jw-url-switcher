@@ -22,7 +22,7 @@
             <tr valign="top">
                 <th scope="row">Media ID</th>
                 <td>
-                    <input type="text" name="jw_url_switcher_media_id" value="<?php echo esc_attr( get_option('jw_url_switcher_media_id') ); ?>" />
+                    <input type="text" name="jw_url_switcher_media_id" value="" />
                 </td>
             </tr>
             
